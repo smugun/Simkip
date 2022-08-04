@@ -1,0 +1,22 @@
+<b>Update Task</b>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body bg-info">
+			<p><a class="btn btn-sm btn-success btn-hover" href="{% url 'tasks' %}">Back to list</a></p>
+
+			<form action="" method="POST">
+				{{ updateForm }}
+				{{ CompleteTaskForm }}
+				{% csrf_token %}
+				<a class="btn btn-sm btn-light" href="{% url 'tasks' %}">Update</a>
+				<input class="btn btn-sm btn-primary" type="submit" value="Update" name="update">
+				<div class="form-row field-complete">
+				<div class="checkbox-row">
+				<input type="checkbox" name="complete" id="id_complete"><label class="vCheckboxLabel" for="id_complete">Complete</label>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

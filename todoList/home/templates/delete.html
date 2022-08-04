@@ -1,0 +1,17 @@
+<h4>Delete Task</h4>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body bg-danger">
+            <div class="alert alert-danger">
+                <p>Are you sure you want to delete{{item}}?</p>
+                <form action="{% url 'delete-task' item.id %}" method="POST">
+                    {% csrf_token %}
+                    {{ updateForm }}
+                    <a class="btn btn-secondary" href="{% url 'tasks' %}">Cancel</a>
+                    <input class="btn btn-danger" type="submit" value="Confirm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

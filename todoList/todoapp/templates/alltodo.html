@@ -1,0 +1,65 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en" dir="ltr">
+<head>
+    <style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+
+    </style>
+    <!-- Required meta tags -->
+    <!--    <meta charset="utf-8">-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
+    <title>Todoapp</title>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card card-body bg-secondary">
+                <header class="bg-primary mx-0 px-0">
+                    <h1 class="text-center">Todo List</h1>
+                </header>
+                <!--        <div class="container fluid mx-8 px-8">-->
+                <table class="text-warning table table-dark table-hover mx-8 px-8">
+
+                </table>
+                <thead>
+                <tbody>
+
+                <tr>
+                    <th>Tasks</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+
+                <form action="" method="POST">
+                    {{form}}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-block btn-sm">Submit</button>
+                </form>
+                {% for todo in tasks %}
+
+                <tr>
+                    <td>{{todo.task}}</td>
+                    <td><a href="{% url 'update' todo.id %}">
+                        <button class="btn btn-info btn-block btn-sm">Update</button>
+                    </a></td>
+                    <td><a href="{% url 'delete' todo.id %}">
+                        <button class="btn btn-danger btn-block btn-sm">Delete</button>
+                    </a></td>
+                </tr>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+</html>
+

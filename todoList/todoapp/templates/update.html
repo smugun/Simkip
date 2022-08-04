@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div container="text-warning">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body bg-info">
+                <h1>Blue Todo List</h1>
+                <form method="POST">
+                    {{updateForm}}
+                    {% csrf_token %}
+                     <a href="{%url 'alltodos'%}" class="btn btn-hover btn-info"> Cancel</a>
+                    <button class="btn btn-secondary btn-hover" type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
